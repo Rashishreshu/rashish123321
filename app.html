@@ -146,7 +146,9 @@
       border-radius: 12px;
       font-size: clamp(1rem, 3vw, 1.2rem);
       font-weight: 500;
-      color: #555;
+      color: #a58484;
+      cursor: pointer;
+      background: #e0b860;
     }
 
     .section-title {
@@ -170,12 +172,14 @@
       gap: 1.5rem;
       padding: 0 clamp(1rem, 3vw, 2rem);
       margin-bottom: 1rem;
+
     }
 
     .remedy-card {
       flex: 0 0 auto;
       width: 90px;
       text-align: center;
+      cursor: pointer;
     }
 
     .remedy-card img {
@@ -185,6 +189,7 @@
       object-fit: cover;
       margin-bottom: 0.5rem;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
     }
 
     .remedy-card p {
@@ -208,6 +213,7 @@
       padding: 0.5rem;
       text-align: center;
       transition: transform 0.2s ease;
+      cursor: pointer;
     }
 
     .product-card:hover {
@@ -309,10 +315,13 @@
       }
 
       .search-button {
-        border-radius: 8px;
-        margin-top: 0.5rem;
-        height: 40px;
+        display: flex;
+        align-items: center;
+        /* vertically align */
+        gap: 8px;
+        /* space between input and button */
       }
+
 
       .bottom-nav {
         padding: 0.75rem 0;
@@ -352,14 +361,16 @@
         left: 50%;
         transform: translateX(-50%);
       }
+
       body {
-  padding-bottom: calc(60px + env(safe-area-inset-bottom));
-}
-     .container {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
+        padding-bottom: calc(60px + env(safe-area-inset-bottom));
+      }
+
+      .container {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 0 1rem;
+      }
     }
   </style>
 </head>
@@ -374,7 +385,7 @@
         <p role="link" tabindex="0" onclick="navigateTo('contact')" data-page="contact">Contact</p>
       </div>
       <button class="massages-button">
-        <img src="/paper-plane.png" width="24" height="24" style="margin-top: 2px;">
+        <img src="/images/paper-plane.png" width="24" height="24" style="margin-top: 2px;">
         <P>Chat</P>
       </button>
       <button class="hamburger" aria-label="Toggle navigation menu" onclick="toggleMenu()">☰</button>
@@ -391,24 +402,32 @@
   <div class="section-title">Remedies <span>›</span></div>
   <div class="remedies">
     <div class="remedy-card">
-      <img src="https://via.placeholder.com/80?text=Tuesday" alt="Tuesday Remedy" />
-      <p>Tuesday</p>
+      <img src="/images/cantaloupe.png" alt="Tuesday Remedy" />
+      <p>Monday (Somvar)</p>
     </div>
     <div class="remedy-card">
-      <img src="https://via.placeholder.com/80?text=Wednesday" alt="Wednesday Remedy" />
-      <p>Wednesday</p>
+      <img src="/images/strawberry.png" alt="Wednesday Remedy" />
+      <p>Tuesday (Mangalvar)</p>
     </div>
     <div class="remedy-card">
-      <img src="https://via.placeholder.com/80?text=Title" alt="Title Remedy" />
-      <p>Title</p>
+      <img src="/images/apple.png" alt="Title Remedy" />
+      <p>Wednesday (Budhvar)</p>
     </div>
     <div class="remedy-card">
-      <img src="https://via.placeholder.com/80?text=Title" alt="Title Remedy" />
-      <p>Title</p>
+      <img src="/images/mango.png" alt="Title Remedy" />
+      <p>Thursday (Guruvar)</p>
     </div>
     <div class="remedy-card">
-      <img src="https://via.placeholder.com/80?text=Title" alt="Title Remedy" />
-      <p>Title</p>
+      <img src="/images/Grapes.png" alt="Title Remedy" />
+      <p>Firday (Shukravar)</p>
+    </div>
+    <div class="remedy-card">
+      <img src="fruite (1).png" alt="Title Remedy" />
+      <p>Saturday (Shanivar)</p>
+    </div>
+    <div class="remedy-card">
+      <img src="/images/papaya.png" alt="Title Remedy" />
+      <p>Sunday (Ravivar)</p>
     </div>
   </div>
 
@@ -424,7 +443,7 @@
       <img src="https://via.placeholder.com/150?text=Product2" alt="Product 2" />
       <p>Brand</p>
       <p>Product name</p>
-      <p>₹10 </p>
+      <p>₹10</p>
     </div>
     <div class="product-card">
       <img src="https://via.placeholder.com/150?text=Product3" alt="Product 3" />
