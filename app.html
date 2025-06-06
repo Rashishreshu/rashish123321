@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Ask-Astro</title>
   <style>
     body {
@@ -11,8 +11,9 @@
       background-color: #fff;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       min-height: 100vh;
-      padding-bottom: 60px;
+      padding-bottom: calc(60px + env(safe-area-inset-bottom));
       color: #333;
+      overscroll-behavior: none;
     }
 
     .navv {
@@ -22,7 +23,9 @@
       background-color: #fff;
       padding: 1rem clamp(1rem, 3vw, 2rem);
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-      position: relative;
+      position: sticky;
+      top: 0;
+      z-index: 1100;
     }
 
     .nav-title {
@@ -54,6 +57,7 @@
       transition: color 0.3s ease;
       position: relative;
       padding-bottom: 0.2rem;
+      touch-action: manipulation;
     }
 
     .nav-links p:hover {
@@ -84,6 +88,7 @@
       border: none;
       padding: 0.5rem;
       color: #555;
+      touch-action: manipulation;
     }
 
     .massages-button {
@@ -91,6 +96,10 @@
       border: none;
       font-size: 1.2rem;
       cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      touch-action: manipulation;
     }
 
     .search-container {
@@ -131,6 +140,7 @@
       height: 40px;
       display: flex;
       align-items: center;
+      touch-action: manipulation;
     }
 
     .search-button:hover {
@@ -138,7 +148,7 @@
     }
 
     .chat-banner {
-      background-color: #e5e5e5;
+      background-color: #e0b860;
       padding: 1.5rem;
       text-align: center;
       margin: 1rem auto;
@@ -148,7 +158,6 @@
       font-weight: 500;
       color: #a58484;
       cursor: pointer;
-      background: #e0b860;
     }
 
     .section-title {
@@ -172,7 +181,6 @@
       gap: 1.5rem;
       padding: 0 clamp(1rem, 3vw, 2rem);
       margin-bottom: 1rem;
-
     }
 
     .remedy-card {
@@ -248,7 +256,6 @@
       justify-content: space-around;
       padding: 0.5rem 0;
       z-index: 1000;
-      /* Ensure it stays above other content */
     }
 
     .bottom-nav button {
@@ -260,6 +267,7 @@
       align-items: center;
       justify-content: center;
       transition: transform 0.2s ease;
+      touch-action: manipulation;
     }
 
     .bottom-nav button:hover {
@@ -269,6 +277,125 @@
     .bottom-nav img {
       width: 24px;
       height: 24px;
+    }
+
+    /* Chat Section Styles */
+    #chat-section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: clamp(0.5rem, 2vw, 1rem);
+      padding-bottom: calc(60px + env(safe-area-inset-bottom));
+      display: flex;
+      flex-direction: column;
+      height: calc(100vh - 60px);
+      z-index: 1050;
+    }
+
+    .chat-header {
+      display: flex;
+      align-items: center;
+      padding: 0.5rem clamp(1rem, 2vw, 1.5rem);
+      background-color: #fff;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .astrologer-img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 0.75rem;
+    }
+
+    .astrologer-info p {
+      margin: 0;
+      font-size: clamp(0.9rem, 2.5vw, 1rem);
+      font-weight: 600;
+      color: #333;
+    }
+
+    .astrologer-info span {
+      font-size: clamp(0.8rem, 2vw, 0.9rem);
+      color: #00cc00;
+    }
+
+    .chat-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: clamp(0.5rem, 2vw, 1rem);
+      background-color: #f5f5f5;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .chat-message {
+      max-width: 70%;
+      padding: 0.5rem 1rem;
+      border-radius: 12px;
+      font-size: clamp(0.9rem, 2.5vw, 1rem);
+      line-height: 1.4;
+    }
+
+    .chat-message.user {
+      background: linear-gradient(to right, #4b6cb7, #182848);
+      color: #fff;
+      align-self: flex-end;
+      border-bottom-right-radius: 4px;
+    }
+
+    .chat-message.bot {
+      background-color: #fff;
+      color: #333;
+      align-self: flex-start;
+      border-bottom-left-radius: 4px;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    .chat-input-container {
+      position: sticky;
+      bottom: 0;
+      background-color: #fff;
+      padding: 0.5rem clamp(1rem, 2vw, 1.5rem);
+      display: flex;
+      gap: 0.5rem;
+      box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.1);
+      z-index: 10;
+    }
+
+    .chat-input {
+      flex: 1;
+      padding: 0.5rem 1rem;
+      border: 1px solid #ddd;
+      border-radius: 20px;
+      font-size: clamp(0.9rem, 2.5vw, 1rem);
+      background-color: #f5f5f5;
+    }
+
+    .chat-input:focus {
+      outline: none;
+      border-color: #888;
+      background-color: #fff;
+    }
+
+    .chat-send-button {
+      padding: 0.5rem 1rem;
+      border: none;
+      background: linear-gradient(to right, #4b6cb7, #182848);
+      color: #fff;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: clamp(0.9rem, 2.5vw, 1rem);
+      transition: background-color 0.3s ease;
+      touch-action: manipulation;
+    }
+
+    .chat-send-button:hover {
+      background: linear-gradient(to right, #182848, #4b6cb7);
     }
 
     @media (max-width: 768px) {
@@ -285,6 +412,7 @@
         transform: translateY(-10px);
         opacity: 0;
         transition: transform 0.3s ease-in-out, opacity 0.3s ease;
+        z-index: 1200;
       }
 
       .nav-links.show {
@@ -303,7 +431,7 @@
       }
 
       .massages-button {
-        display: inline-block;
+        display: flex;
       }
 
       .search-container {
@@ -317,11 +445,8 @@
       .search-button {
         display: flex;
         align-items: center;
-        /* vertically align */
         gap: 8px;
-        /* space between input and button */
       }
-
 
       .bottom-nav {
         padding: 0.75rem 0;
@@ -331,11 +456,32 @@
         width: 22px;
         height: 22px;
       }
+
+      #chat-section {
+        padding: 0.5rem;
+      }
+
+      .chat-header {
+        padding: 0.5rem;
+      }
+
+      .chat-messages {
+        padding: 0.5rem;
+      }
+
+      .chat-input-container {
+        padding: 0.5rem;
+      }
+
+      .astrologer-img {
+        width: 32px;
+        height: 32px;
+      }
     }
 
     @media (min-width: 769px) {
       .massages-button {
-        display: inline-block;
+        display: flex;
         margin-left: 1rem;
       }
 
@@ -357,19 +503,20 @@
 
       .bottom-nav {
         max-width: 900px;
-        /* Match content width */
         left: 50%;
         transform: translateX(-50%);
       }
 
-      body {
-        padding-bottom: calc(60px + env(safe-area-inset-bottom));
+      .chat-messages {
+        padding: 1rem;
       }
 
-      .container {
-        max-width: 960px;
-        margin: 0 auto;
-        padding: 0 1rem;
+      .chat-header {
+        padding: 0.75rem 1.5rem;
+      }
+
+      .chat-input-container {
+        padding: 0.75rem 1.5rem;
       }
     }
   </style>
@@ -380,15 +527,15 @@
     <div class="nav-title">Ask-Astro</div>
     <div class="nav-right">
       <div class="nav-links" id="navLinks">
-        <p role="link" tabindex="0" onclick="navigateTo('home')" data-page="home" class="selected">Home</p>
-        <p role="link" tabindex="0" onclick="navigateTo('services')" data-page="services" id="services">Services</p>
-        <p role="link" tabindex="0" onclick="navigateTo('contact')" data-page="contact">Contact</p>
+        <p role="link" tabindex="0" data-page="home" class="selected">Home</p>
+        <p role="link" tabindex="0" data-page="services" id="services">Services</p>
+        <p role="link" tabindex="0" data-page="contact">Contact</p>
       </div>
-      <button class="massages-button">
-        <img src="/paper-plane.png" width="24" height="24" style="margin-top: 2px;">
-        <P>Chat</P>
+      <button class="massages-button" aria-label="Open chat">
+        <img src="/images/paper-plane.png" width="24" height="24" style="margin-top: 2px;" alt="Chat Icon">
+        <p>Chat</p>
       </button>
-      <button class="hamburger" aria-label="Toggle navigation menu" onclick="toggleMenu()">☰</button>
+      <button class="hamburger" aria-label="Toggle navigation menu">☰</button>
     </div>
   </nav>
 
@@ -402,31 +549,31 @@
   <div class="section-title">Remedies <span>›</span></div>
   <div class="remedies">
     <div class="remedy-card">
-      <img src="/cantaloupe.png" alt="Tuesday Remedy" />
+      <img src="/cantaloupe.png" alt="Monday Remedy" />
       <p>Monday (Somvar)</p>
     </div>
     <div class="remedy-card">
-      <img src="/strawberry.png" alt="Wednesday Remedy" />
+      <img src="/strawberry.png" alt="Tuesday Remedy" />
       <p>Tuesday (Mangalvar)</p>
     </div>
     <div class="remedy-card">
-      <img src="/apple.png" alt="Title Remedy" />
+      <img src="/apple.png" alt="Wednesday Remedy" />
       <p>Wednesday (Budhvar)</p>
     </div>
     <div class="remedy-card">
-      <img src="/mango.png" alt="Title Remedy" />
+      <img src="/mango.png" alt="Thursday Remedy" />
       <p>Thursday (Guruvar)</p>
     </div>
     <div class="remedy-card">
-      <img src="/grapes.png" alt="Title Remedy" />
-      <p>Firday (Shukravar)</p>
+      <img src="/grapes.png" alt="Friday Remedy" />
+      <p>Friday (Shukravar)</p>
     </div>
     <div class="remedy-card">
-      <img src="/fruit (2).png" alt="Title Remedy" />
+      <img src="/fruit (2).png" alt="Saturday Remedy" />
       <p>Saturday (Shanivar)</p>
     </div>
     <div class="remedy-card">
-      <img src="/papaya.png" alt="Title Remedy" />
+      <img src="/papaya.png" alt="Sunday Remedy" />
       <p>Sunday (Ravivar)</p>
     </div>
   </div>
@@ -437,7 +584,7 @@
       <img src="https://via.placeholder.com/150?text=Product1" alt="Product 1" />
       <p>Brand</p>
       <p>Product name</p>
-      <p>₹10 </p>
+      <p>₹10</p>
     </div>
     <div class="product-card">
       <img src="https://via.placeholder.com/150?text=Product2" alt="Product 2" />
@@ -449,7 +596,24 @@
       <img src="https://via.placeholder.com/150?text=Product3" alt="Product 3" />
       <p>Brand</p>
       <p>Product name</p>
-      <p>₹10 </p>
+      <p>₹10</p>
+    </div>
+  </div>
+
+  <div id="chat-section" style="display: none;">
+    <div class="chat-header">
+      <img src="https://via.placeholder.com/40?text=Rashish" alt="Rashish Ji" class="astrologer-img" />
+      <div class="astrologer-info">
+        <p>Rashish Ji</p>
+        <span>Online</span>
+      </div>
+    </div>
+    <div class="chat-messages" id="chatMessages" aria-live="polite">
+      <!-- Messages will be added here dynamically -->
+    </div>
+    <div class="chat-input-container">
+      <input type="text" id="chatInput" placeholder="Type your question..." class="chat-input" />
+      <button class="chat-send-button">Send</button>
     </div>
   </div>
 
@@ -479,11 +643,47 @@
       nav.classList.toggle('show');
     }
 
+    function showChat() {
+      currentPage = 'chat';
+      document.querySelectorAll('.nav-links p').forEach(link => {
+        link.classList.remove('selected');
+        if (link.getAttribute('data-page') === 'home') {
+          link.classList.add('selected');
+        }
+      });
+
+      const bodyChildren = Array.from(document.body.children);
+      bodyChildren.forEach(child => {
+        if (
+          !child.classList.contains('navv') &&
+          !child.classList.contains('bottom-nav') &&
+          child.id !== 'chat-section' &&
+          child.tagName !== 'SCRIPT'
+        ) {
+          child.style.display = 'none';
+        }
+      });
+
+      const chatSection = document.getElementById('chat-section');
+      if (chatSection) {
+        chatSection.style.display = 'flex';
+      }
+
+      const chatMessages = document.getElementById('chatMessages');
+      if (chatMessages) {
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }
+    }
+
     function navigateTo(page) {
       if (page === currentPage) return;
       currentPage = page;
 
-      // Highlight active tab
+      const chatSection = document.getElementById('chat-section');
+      if (chatSection) {
+        chatSection.style.display = 'none';
+      }
+
       document.querySelectorAll('.nav-links p').forEach(link => {
         link.classList.remove('selected');
         if (link.getAttribute('data-page') === page) {
@@ -491,30 +691,69 @@
         }
       });
 
-      // Clear main content except nav and bottom nav
       const bodyChildren = Array.from(document.body.children);
       bodyChildren.forEach(child => {
         if (
           !child.classList.contains('navv') &&
           !child.classList.contains('bottom-nav') &&
+          child.id !== 'chat-section' &&
           child.tagName !== 'SCRIPT'
         ) {
           child.remove();
         }
       });
 
-      // Load new content
       const content = document.createElement('div');
-      content.style.padding = "2rem";
-      content.style.textAlign = "center";
+      content.style.padding = '2rem';
+      content.style.textAlign = 'center';
       content.innerHTML = `
-      <h2>${page.charAt(0).toUpperCase() + page.slice(1)} Page</h2>
-      <p>This section is under development.</p>
-    `;
+        <h2>${page.charAt(0).toUpperCase() + page.slice(1)} Page</h2>
+        <p>This section is under development.</p>
+      `;
       document.body.insertBefore(content, document.querySelector('.bottom-nav'));
     }
 
-    // Navigation tab click & keyboard support
+    function getBotResponse(message) {
+      const lowerMessage = message.toLowerCase().trim();
+      const responses = [
+        { keywords: ['horoscope', 'zodiac', 'sign'], reply: 'Please tell me your zodiac sign, and I’ll share your horoscope for today!' },
+        { keywords: ['love', 'relationship', 'marriage'], reply: 'Love is in the stars! Share your zodiac sign or specific question for a detailed reading.' },
+        { keywords: ['career', 'job', 'work'], reply: 'The planets can guide your career path. What’s your zodiac sign or specific career concern?' },
+        { keywords: ['health', 'wellness'], reply: 'Health is wealth! Let me know your zodiac sign for personalized health insights.' },
+        { keywords: ['future', 'destiny', 'fate'], reply: 'The stars hold your future. Ask a specific question or share your zodiac sign for insights.' },
+        { keywords: ['thank', 'thanks'], reply: 'You’re very welcome! Ask another question to dive deeper into the cosmos.' }
+      ];
+
+      for (const response of responses) {
+        if (response.keywords.some(keyword => lowerMessage.includes(keyword))) {
+          return response.reply;
+        }
+      }
+
+      return 'I’m Rashish Ji’s bot assistant. Ask about your horoscope, love, career, or health, and I’ll guide you!';
+    }
+
+    function sendMessage() {
+      const chatInput = document.getElementById('chatInput');
+      const chatMessages = document.getElementById('chatMessages');
+      const message = chatInput.value.trim();
+
+      if (!message) return;
+
+      const userMessage = document.createElement('div');
+      userMessage.className = 'chat-message user';
+      userMessage.textContent = message;
+      chatMessages.appendChild(userMessage);
+
+      const botResponse = document.createElement('div');
+      botResponse.className = 'chat-message bot';
+      botResponse.textContent = getBotResponse(message);
+      chatMessages.appendChild(botResponse);
+
+      chatInput.value = '';
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
     document.querySelectorAll('.nav-links p').forEach(link => {
       link.addEventListener('click', () => {
         const page = link.getAttribute('data-page');
@@ -528,9 +767,33 @@
         }
       });
     });
+
+    const chatButton = document.querySelector('.massages-button');
+    chatButton.addEventListener('click', showChat);
+    chatButton.addEventListener('touchstart', (e) => {
+      e.preventDefault();
+      showChat();
+    });
+
+    const sendButton = document.querySelector('.chat-send-button');
+    sendButton.addEventListener('click', sendMessage);
+    sendButton.addEventListener('touchstart', (e) => {
+      e.preventDefault();
+      sendMessage();
+    });
+
+    document.getElementById('chatInput')?.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        sendMessage();
+      }
+    });
+
+    document.querySelector('.hamburger').addEventListener('click', toggleMenu);
+    document.querySelector('.hamburger').addEventListener('touchstart', (e) => {
+      e.preventDefault();
+      toggleMenu();
+    });
   </script>
-
-
 </body>
 
 </html>
