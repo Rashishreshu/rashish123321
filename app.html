@@ -8,11 +8,13 @@
   <style>
     body {
       margin: 0;
-      background-color: #fff;
+      background-color: #f9f5ff;
+      /* Light lavender background for spiritual vibe */
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       min-height: 100vh;
       padding-bottom: calc(60px + env(safe-area-inset-bottom));
-      color: #333;
+      color: #4a3c6b;
+      /* Deep purple text for contrast */
       overscroll-behavior: none;
     }
 
@@ -20,7 +22,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background-color: #fff;
+      background-color: #fff7ed;
+      /* Soft peach background */
       padding: 1rem clamp(1rem, 3vw, 2rem);
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
       position: sticky;
@@ -31,7 +34,8 @@
     .nav-title {
       font-size: clamp(1.2rem, 4vw, 1.8rem);
       font-weight: bold;
-      background: linear-gradient(to right, #4b6cb7, #182848);
+      background: linear-gradient(to right, #d4a373, #8a5a44);
+      /* Gold to deep brown gradient */
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
@@ -53,7 +57,8 @@
       margin: 0;
       cursor: pointer;
       font-weight: 500;
-      color: #555;
+      color: #6b5b95;
+      /* Muted purple */
       transition: color 0.3s ease;
       position: relative;
       padding-bottom: 0.2rem;
@@ -61,11 +66,13 @@
     }
 
     .nav-links p:hover {
-      color: #000;
+      color: #d4a373;
+      /* Gold on hover */
     }
 
     .nav-links p.selected {
-      color: #000;
+      color: #8a5a44;
+      /* Deep brown for selected */
       font-weight: 600;
       cursor: default;
     }
@@ -77,7 +84,7 @@
       left: 0;
       width: 100%;
       height: 2px;
-      background: linear-gradient(to right, #4b6cb7, #182848);
+      background: linear-gradient(to right, #d4a373, #8a5a44);
     }
 
     .hamburger {
@@ -87,7 +94,7 @@
       background: none;
       border: none;
       padding: 0.5rem;
-      color: #555;
+      color: #6b5b95;
       touch-action: manipulation;
     }
 
@@ -99,6 +106,7 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
+      color: #6b5b95;
       touch-action: manipulation;
     }
 
@@ -110,29 +118,32 @@
       gap: 0;
       max-width: 900px;
       margin: 0 auto;
+      background-color: #fff7ed;
     }
 
     .search-bar {
       flex: 1;
       padding: 0.5rem 1rem;
-      border: 1px solid #ddd;
+      border: 1px solid #e8d9c6;
+      /* Light peach border */
       border-radius: 8px 0 0 8px;
       height: 36px;
       font-size: clamp(0.9rem, 2.5vw, 1rem);
-      background-color: #f5f5f5;
+      background-color: #fef9f1;
+      /* Very light peach */
     }
 
     .search-bar:focus {
       outline: none;
-      border-color: #888;
+      border-color: #d4a373;
       background-color: #fff;
     }
 
     .search-button {
       padding: 0.5rem 1rem;
       border: none;
-      background-color: #e0e0e0;
-      color: #555;
+      background: linear-gradient(to right, #d4a373, #8a5a44);
+      color: #fff;
       border-radius: 0 8px 8px 0;
       cursor: pointer;
       font-size: clamp(0.9rem, 2.5vw, 1rem);
@@ -144,53 +155,60 @@
     }
 
     .search-button:hover {
-      background-color: #d0d0d0;
+      background: linear-gradient(to right, #8a5a44, #d4a373);
     }
 
     .chat-banner {
-      background-color: #e0b860;
+      background: linear-gradient(to right, #f4e3c9, #e8d9c6);
+      /* Soft gradient */
       padding: 1.5rem;
       text-align: center;
-      margin: 1rem auto;
+      margin: 0 auto;
       max-width: 900px;
       border-radius: 12px;
       font-size: clamp(1rem, 3vw, 1.2rem);
       font-weight: 500;
-      color: #a58484;
+      color: #8a5a44;
       cursor: pointer;
     }
 
     .section-title {
       font-size: clamp(1.1rem, 3vw, 1.3rem);
       font-weight: 600;
-      margin: 1rem clamp(1rem, 3vw, 2rem);
+      margin: 0 clamp(1rem, 3vw, 2rem);
+      padding: 1rem 0;
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      color: #333;
+      color: #4a3c6b;
+      background-color: #fff7ed;
     }
 
     .section-title span {
       font-size: 1.2rem;
-      color: #888;
+      color: #d4a373;
     }
 
-    .remedies {
+    .remedies,
+    .horoscopes {
       display: flex;
       overflow-x: auto;
       gap: 1.5rem;
       padding: 0 clamp(1rem, 3vw, 2rem);
-      margin-bottom: 1rem;
+      margin: 0;
+      background-color: #f9f5ff;
     }
 
-    .remedy-card {
+    .remedy-card,
+    .horoscope-card {
       flex: 0 0 auto;
       width: 90px;
       text-align: center;
       cursor: pointer;
     }
 
-    .remedy-card img {
+    .remedy-card img,
+    .horoscope-card img {
       width: 80px;
       height: 80px;
       border-radius: 50%;
@@ -200,10 +218,11 @@
       cursor: pointer;
     }
 
-    .remedy-card p {
+    .remedy-card p,
+    .horoscope-card p {
       margin: 0;
       font-size: clamp(0.8rem, 2vw, 0.9rem);
-      color: #555;
+      color: #6b5b95;
     }
 
     .products {
@@ -211,11 +230,12 @@
       grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
       gap: 1rem;
       padding: 0 clamp(1rem, 3vw, 2rem);
-      margin-bottom: 1rem;
+      margin: 0;
+      background-color: #f9f5ff;
     }
 
     .product-card {
-      background-color: #fff;
+      background-color: #fff7ed;
       border-radius: 12px;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
       padding: 0.5rem;
@@ -238,11 +258,11 @@
     .product-card p {
       margin: 0.3rem 0;
       font-size: clamp(0.8rem, 2vw, 0.9rem);
-      color: #777;
+      color: #8a5a44;
     }
 
     .product-card p:last-child {
-      color: #333;
+      color: #4a3c6b;
       font-weight: 500;
     }
 
@@ -250,7 +270,7 @@
       position: fixed;
       bottom: 0;
       width: 100%;
-      background-color: #fff;
+      background-color: #fff7ed;
       box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.1);
       display: flex;
       justify-content: space-around;
@@ -289,13 +309,14 @@
       flex-direction: column;
       height: calc(100vh - 60px);
       z-index: 1050;
+      background-color: #f9f5ff;
     }
 
     .chat-header {
       display: flex;
       align-items: center;
       padding: 0.5rem clamp(1rem, 2vw, 1.5rem);
-      background-color: #fff;
+      background-color: #fff7ed;
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
       position: sticky;
       top: 0;
@@ -314,7 +335,7 @@
       margin: 0;
       font-size: clamp(0.9rem, 2.5vw, 1rem);
       font-weight: 600;
-      color: #333;
+      color: #4a3c6b;
     }
 
     .astrologer-info span {
@@ -326,7 +347,7 @@
       flex: 1;
       overflow-y: auto;
       padding: clamp(0.5rem, 2vw, 1rem);
-      background-color: #f5f5f5;
+      background-color: #fef9f1;
       display: flex;
       flex-direction: column;
       gap: 0.5rem;
@@ -342,7 +363,7 @@
     }
 
     .chat-message.user {
-      background: linear-gradient(to right, #4b6cb7, #182848);
+      background: linear-gradient(to right, #d4a373, #8a5a44);
       color: #fff;
       align-self: flex-end;
       border-bottom-right-radius: 4px;
@@ -350,7 +371,7 @@
 
     .chat-message.bot {
       background-color: #fff;
-      color: #333;
+      color: #4a3c6b;
       align-self: flex-start;
       border-bottom-left-radius: 4px;
       box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
@@ -359,7 +380,7 @@
     .chat-input-container {
       position: sticky;
       bottom: 0;
-      background-color: #fff;
+      background-color: #fff7ed;
       padding: 0.5rem clamp(1rem, 2vw, 1.5rem);
       display: flex;
       gap: 0.5rem;
@@ -370,22 +391,22 @@
     .chat-input {
       flex: 1;
       padding: 0.5rem 1rem;
-      border: 1px solid #ddd;
+      border: 1px solid #e8d9c6;
       border-radius: 20px;
       font-size: clamp(0.9rem, 2.5vw, 1rem);
-      background-color: #f5f5f5;
+      background-color: #fef9f1;
     }
 
     .chat-input:focus {
       outline: none;
-      border-color: #888;
+      border-color: #d4a373;
       background-color: #fff;
     }
 
     .chat-send-button {
       padding: 0.5rem 1rem;
       border: none;
-      background: linear-gradient(to right, #4b6cb7, #182848);
+      background: linear-gradient(to right, #d4a373, #8a5a44);
       color: #fff;
       border-radius: 20px;
       cursor: pointer;
@@ -395,7 +416,7 @@
     }
 
     .chat-send-button:hover {
-      background: linear-gradient(to right, #182848, #4b6cb7);
+      background: linear-gradient(to right, #8a5a44, #d4a373);
     }
 
     @media (max-width: 768px) {
@@ -406,7 +427,7 @@
         top: 100%;
         left: 0;
         width: 100%;
-        background-color: #fff;
+        background-color: #fff7ed;
         padding: clamp(0.5rem, 2vw, 1rem);
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         transform: translateY(-10px);
@@ -493,7 +514,8 @@
         border-right: none;
       }
 
-      .remedies {
+      .remedies,
+      .horoscopes {
         justify-content: center;
       }
 
@@ -518,6 +540,31 @@
       .chat-input-container {
         padding: 0.75rem 1.5rem;
       }
+
+      .horoscopes {
+        overflow-x: auto;
+        scrollbar-width: none;
+        /* Firefox */
+        -ms-overflow-style: none;
+        /* IE and Edge */
+      }
+
+      .horoscopes::-webkit-scrollbar {
+        display: none;
+        /* Chrome, Safari */
+      }
+
+      .horoscopes {
+        display: flex;
+        flex-wrap: wrap;
+        /* ya overflow auto ke jagah wrap */
+        gap: 10px;
+        justify-content: center;
+        overflow-x: hidden;
+        /* <== ye important hai */
+      }
+
+
     }
   </style>
 </head>
@@ -529,7 +576,7 @@
       <div class="nav-links" id="navLinks">
         <p role="link" tabindex="0" data-page="home" class="selected">Home</p>
         <p role="link" tabindex="0" data-page="services" id="services">Services</p>
-        <p role="link" tabindex="0" data-page="contact">Contact</p>
+        <p role="link" tabindex="0" data-page="contact">Login</p>
       </div>
       <button class="massages-button" aria-label="Open chat">
         <img src="/images/paper-plane.png" width="24" height="24" style="margin-top: 2px;" alt="Chat Icon">
@@ -539,64 +586,118 @@
     </div>
   </nav>
 
-  <div class="search-container">
-    <input type="search" placeholder="Search" class="search-bar" />
-    <button type="button" class="search-button">Search</button>
-  </div>
+  <div id="main-content">
+    <div class="search-container">
+      <input type="search" placeholder="Search" class="search-bar" />
+      <button type="button" class="search-button">Search</button>
+    </div>
 
-  <div class="chat-banner">Chat With Astrologer</div>
+    <div class="chat-banner">Chat With Astrologer</div>
 
-  <div class="section-title">Remedies <span>›</span></div>
-  <div class="remedies">
-    <div class="remedy-card">
-      <img src="/cantaloupe.png" alt="Monday Remedy" />
-      <p>Monday (Somvar)</p>
+    <div class="section-title">Remedies <span>›</span></div>
+    <div class="remedies">
+      <div class="remedy-card">
+        <img src="/cantaloupe.png" alt="Monday Remedy" />
+        <p>Monday (Somvar)</p>
+      </div>
+      <div class="remedy-card">
+        <img src="/strawberry.png" alt="Tuesday Remedy" />
+        <p>Tuesday (Mangalvar)</p>
+      </div>
+      <div class="remedy-card">
+        <img src="/apple.png" alt="Wednesday Remedy" />
+        <p>Wednesday (Budhvar)</p>
+      </div>
+      <div class="remedy-card">
+        <img src="/mango.png" alt="Thursday Remedy" />
+        <p>Thursday (Guruvar)</p>
+      </div>
+      <div class="remedy-card">
+        <img src="/grapes.png" alt="Friday Remedy" />
+        <p>Friday (Shukravar)</p>
+      </div>
+      <div class="remedy-card">
+        <img src="/fruit (2).png" alt="Saturday Remedy" />
+        <p>Saturday (Shanivar)</p>
+      </div>
+      <div class="remedy-card">
+        <img src="/papaya.png" alt="Sunday Remedy" />
+        <p>Sunday (Ravivar)</p>
+      </div>
     </div>
-    <div class="remedy-card">
-      <img src="/strawberry.png" alt="Tuesday Remedy" />
-      <p>Tuesday (Mangalvar)</p>
-    </div>
-    <div class="remedy-card">
-      <img src="/apple.png" alt="Wednesday Remedy" />
-      <p>Wednesday (Budhvar)</p>
-    </div>
-    <div class="remedy-card">
-      <img src="/mango.png" alt="Thursday Remedy" />
-      <p>Thursday (Guruvar)</p>
-    </div>
-    <div class="remedy-card">
-      <img src="/grapes.png" alt="Friday Remedy" />
-      <p>Friday (Shukravar)</p>
-    </div>
-    <div class="remedy-card">
-      <img src="/fruit (2).png" alt="Saturday Remedy" />
-      <p>Saturday (Shanivar)</p>
-    </div>
-    <div class="remedy-card">
-      <img src="/papaya.png" alt="Sunday Remedy" />
-      <p>Sunday (Ravivar)</p>
-    </div>
-  </div>
 
-  <div class="section-title">Products <span>›</span></div>
-  <div class="products">
-    <div class="product-card">
-      <img src="https://via.placeholder.com/150?text=Product1" alt="Product 1" />
-      <p>Brand</p>
-      <p>Product name</p>
-      <p>₹10</p>
+    <div class="section-title">Horoscopes <span>›</span></div>
+    <div class="horoscopes">
+      <div class="horoscope-card">
+        <img src="/aries.png" alt="Aries" />
+        <p>Aries</p>
+      </div>
+      <div class="horoscope-card">
+        <img src="/taurus.png" alt="Taurus" />
+        <p>Taurus</p>
+      </div>
+      <div class="horoscope-card">
+        <img src="/gemini.png" alt="Gemini" />
+        <p>Gemini</p>
+      </div>
+      <div class="horoscope-card">
+        <img src="/cancer.png" alt="Cancer" />
+        <p>Cancer</p>
+      </div>
+      <div class="horoscope-card">
+        <img src="/leo.png" alt="Leo" />
+        <p>Leo</p>
+      </div>
+      <div class="horoscope-card">
+        <img src="/virgo.png" alt="Virgo" />
+        <p>Virgo</p>
+      </div>
+      <div class="horoscope-card">
+        <img src="/libra.png" alt="Libra" />
+        <p>Libra</p>
+      </div>
+      <div class="horoscope-card">
+        <img src="/scorpio.png" alt="Scorpio" />
+        <p>Scorpio</p>
+      </div>
+      <div class="horoscope-card">
+        <img src="/sagittarius.png" alt="Sagittarius" />
+        <p>Sagittarius</p>
+      </div>
+      <div class="horoscope-card">
+        <img src="/capricorn.png" alt="Capricorn" />
+        <p>Capricorn</p>
+      </div>
+      <div class="horoscope-card">
+        <img src="/aquarius.png" alt="Aquarius" />
+        <p>Aquarius</p>
+      </div>
+      <div class="horoscope-card">
+        <img src="/pisces.png" alt="Pisces" />
+        <p>Pisces</p>
+      </div>
     </div>
-    <div class="product-card">
-      <img src="https://via.placeholder.com/150?text=Product2" alt="Product 2" />
-      <p>Brand</p>
-      <p>Product name</p>
-      <p>₹10</p>
-    </div>
-    <div class="product-card">
-      <img src="https://via.placeholder.com/150?text=Product3" alt="Product 3" />
-      <p>Brand</p>
-      <p>Product name</p>
-      <p>₹10</p>
+
+    <div class="section-title">Products <span>›</span></div>
+    <div class="products">
+      <div class="product-card">
+        <img src="https://via.placeholder.com/150?text=Product1" alt="Product 1" />
+        <p>Brand</p>
+        <p>Product name</p>
+        <p>₹10</p>
+      </div>
+      <div class="product-card">
+        <img src="https://via.placeholder.com/150?text=Product2" alt="Product 2" />
+        <p>Brand</p>
+        <p>Product name</p>
+        <p>₹10</p>
+      </div>
+      <div class="product-card">
+        <img src="https://via.placeholder.com/150?text=Product3" alt="Product 3" />
+        <p>Brand</p>
+        <p>Product name</p>
+        <p>₹10</p>
+      </div>
     </div>
   </div>
 
@@ -618,7 +719,7 @@
   </div>
 
   <div class="bottom-nav">
-    <button aria-label="Home">
+    <button aria-label="Home" data-page="home">
       <img src="https://img.icons8.com/color/48/000000/home--v1.png" alt="Home Icon" />
     </button>
     <button aria-label="Compass">
@@ -637,6 +738,7 @@
 
   <script>
     let currentPage = 'home';
+    const mainContent = document.getElementById('main-content');
 
     function toggleMenu() {
       const nav = document.getElementById('navLinks');
@@ -652,18 +754,7 @@
         }
       });
 
-      const bodyChildren = Array.from(document.body.children);
-      bodyChildren.forEach(child => {
-        if (
-          !child.classList.contains('navv') &&
-          !child.classList.contains('bottom-nav') &&
-          child.id !== 'chat-section' &&
-          child.tagName !== 'SCRIPT'
-        ) {
-          child.style.display = 'none';
-        }
-      });
-
+      mainContent.style.display = 'none';
       const chatSection = document.getElementById('chat-section');
       if (chatSection) {
         chatSection.style.display = 'flex';
@@ -675,8 +766,122 @@
       }
     }
 
+    function loadHomePage() {
+      mainContent.innerHTML = `
+        <div class="search-container">
+          <input type="search" placeholder="Search" class="search-bar" />
+          <button type="button" class="search-button">Search</button>
+        </div>
+        <div class="chat-banner">Chat With Astrologer</div>
+        <div class="section-title">Remedies <span>›</span></div>
+        <div class="remedies">
+          <div class="remedy-card">
+            <img src="/cantaloupe.png" alt="Monday Remedy" />
+            <p>Monday (Somvar)</p>
+          </div>
+          <div class="remedy-card">
+            <img src="/strawberry.png" alt="Tuesday Remedy" />
+            <p>Tuesday (Mangalvar)</p>
+          </div>
+          <div class="remedy-card">
+            <img src="/apple.png" alt="Wednesday Remedy" />
+            <p>Wednesday (Budhvar)</p>
+          </div>
+          <div class="remedy-card">
+            <img src="/mango.png" alt="Thursday Remedy" />
+            <p>Thursday (Guruvar)</p>
+          </div>
+          <div class="remedy-card">
+            <img src="/grapes.png" alt="Friday Remedy" />
+            <p>Friday (Shukravar)</p>
+          </div>
+          <div class="remedy-card">
+            <img src="/fruit (1).png" alt="Saturday Remedy" />
+            <p>Saturday (Shanivar)</p>
+          </div>
+          <div class="remedy-card">
+            <img src="papaya.png" alt="Sunday Remedy" />
+            <p>Sunday (Ravivar)</p>
+          </div>
+        </div>
+        <div class="section-title">Horoscopes <span>›</span></div>
+        <div class="horoscopes">
+          <div class="horoscope-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQj0yhbrOnCq0kDJpNmJJI6NtbErcsYp0Bjtg&s" alt="Aries" />
+            <p>Aries</p>
+          </div>
+          <div class="horoscope-card">
+            <img src="https://e7.pngegg.com/pngimages/607/396/png-clipart-taurus-astrological-sign-zodiac-astrology-taurus-horoscope-astrological-sign-thumbnail.png" alt="Taurus" />
+            <p>Taurus</p>
+          </div>
+          <div class="horoscope-card">
+            <img src="https://cdn-icons-png.flaticon.com/512/47/47271.png" alt="Gemini" />
+            <p>Gemini</p>
+          </div>
+          <div class="horoscope-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpMnMNGFQLwTrPirh9UXxbbjxJnXgodih8Sg&s" alt="Cancer" />
+            <p>Cancer</p>
+          </div>
+          <div class="horoscope-card">
+            <img src="https://w7.pngwing.com/pngs/583/26/png-transparent-leo-astrological-sign-zodiac-astrology-astrological-symbols-leo.png" alt="Leo" />
+            <p>Leo</p>
+          </div>
+          <div class="horoscope-card">
+            <img src="https://w7.pngwing.com/pngs/757/896/png-transparent-virgo-zodiac-astrological-sign-astrology-icon-virgo-file-text-logo-horoscope-thumbnail.png" alt="Virgo" />
+            <p>Virgo</p>
+          </div>
+          <div class="horoscope-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQo4pgwiKT7dc8om_YBm3fvgxF1Wchk-ds19A&s" alt="Libra" />
+            <p>Libra</p>
+          </div>
+          <div class="horoscope-card">
+            <img src="https://e7.pngegg.com/pngimages/868/199/png-clipart-scorpio-astrological-sign-astrological-symbols-scorpio-stars-s-angle-text-thumbnail.png" alt="Scorpio" />
+            <p>Scorpio</p>
+          </div>
+          <div class="horoscope-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSk9CV8B1u_al_QJn5x5vkwRXcPbAh4XhpBqg&s" alt="Sagittarius" />
+            <p>Sagittarius</p>
+          </div>
+          <div class="horoscope-card">
+            <img src="https://pngimg.com/uploads/capricorn/small/capricorn_PNG99.png" alt="Capricorn" />
+            <p>Capricorn</p>
+          </div>
+          <div class="horoscope-card">
+            <img src="https://w7.pngwing.com/pngs/410/687/png-transparent-aquarius-astrological-sign-aquarius-angle-text-trademark-thumbnail.png" alt="Aquarius" />
+            <p>Aquarius</p>
+          </div>
+          <div class="horoscope-card">
+            <img src="https://pngimg.com/d/pisces_PNG25.png" alt="Pisces" />
+            <p>Pisces</p>
+          </div>
+        </div>
+        <div class="section-title">Products <span>›</span></div>
+        <div class="products">
+          <div class="product-card">
+            <img src="https://via.placeholder.com/150?text=Product1" alt="Product 1" />
+            <p>Brand</p>
+            <p>Product name</p>
+            <p>₹10</p>
+          </div>
+          <div class="product-card">
+            <img src="https://via.placeholder.com/150?text=Product2" alt="Product 2" />
+            <p></p>
+            <p>Product name</p>
+            <p>₹10</p>
+          </div>
+          <div class="product-card">
+            <img src="https://via.placeholder.com/150?text=Product3" alt="Product 3" />
+            <p>Brand</p>
+            <p>Product name</p>
+            <p>₹10</p>
+          </div>
+        </div>
+      `;
+      mainContent.style.display = 'block';
+    }
+
     function navigateTo(page) {
-      if (page === currentPage) return;
+      if (page === currentPage && page !== 'home') return;
       currentPage = page;
 
       const chatSection = document.getElementById('chat-section');
@@ -691,36 +896,43 @@
         }
       });
 
-      const bodyChildren = Array.from(document.body.children);
-      bodyChildren.forEach(child => {
-        if (
-          !child.classList.contains('navv') &&
-          !child.classList.contains('bottom-nav') &&
-          child.id !== 'chat-section' &&
-          child.tagName !== 'SCRIPT'
-        ) {
-          child.remove();
-        }
-      });
-
-      const content = document.createElement('div');
-      content.style.padding = '2rem';
-      content.style.textAlign = 'center';
-      content.innerHTML = `
-        <h2>${page.charAt(0).toUpperCase() + page.slice(1)} Page</h2>
-        <p>This section is under development.</p>
-      `;
-      document.body.insertBefore(content, document.querySelector('.bottom-nav'));
+      if (page === 'home') {
+        loadHomePage();
+      } else {
+        mainContent.innerHTML = `
+          <div style="padding: 2rem; text-align: center;">
+            <h2>${page.charAt(0).toUpperCase() + page.slice(1)} Page</h2>
+            <p>This section is under development.</p>
+          </div>
+        `;
+        mainContent.style.display = 'block';
+      }
     }
 
     function getBotResponse(message) {
       const lowerMessage = message.toLowerCase().trim();
+      const today = new Date();
+      const options = { year: 'numeric', month: 'long', day: 'numeric' };
+      const todayStr = today.toLocaleDateString('en-US', options); // Example: June 7, 2025
+
       const responses = [
         { keywords: ['horoscope', 'zodiac', 'sign'], reply: 'Please tell me your zodiac sign, and I’ll share your horoscope for today!' },
-        { keywords: ['love', 'relationship', 'marriage'], reply: 'Love is in the stars! Share your zodiac sign or specific question for a detailed reading.' },
-        { keywords: ['career', 'job', 'work'], reply: 'The planets can guide your career path. What’s your zodiac sign or specific career concern?' },
-        { keywords: ['health', 'wellness'], reply: 'Health is wealth! Let me know your zodiac sign for personalized health insights.' },
-        { keywords: ['future', 'destiny', 'fate'], reply: 'The stars hold your future. Ask a specific question or share your zodiac sign for insights.' },
+        { keywords: ['aries'], reply: `Aries (${todayStr}): Today, your energy is high, but avoid impulsive decisions. Focus on teamwork for success.` },
+        { keywords: ['taurus'], reply: `Taurus (${todayStr}): Stability is your strength today. A financial opportunity may arise—evaluate it carefully.` },
+        { keywords: ['gemini'], reply: `Gemini (${todayStr}): Communication is key today. Share your ideas, but listen to others as well.` },
+        { keywords: ['cancer'], reply: `Cancer (${todayStr}): Emotional connections deepen today. Spend time with loved ones for comfort.` },
+        { keywords: ['leo'], reply: `Leo (${todayStr}): Your charisma shines today. Take the lead in projects, but stay humble.` },
+        { keywords: ['virgo'], reply: `Virgo (${todayStr}): Attention to detail pays off today. Organize your tasks for maximum productivity.` },
+        { keywords: ['libra'], reply: `Libra (${todayStr}): Balance is crucial today. Avoid conflicts and seek harmony in relationships.` },
+        { keywords: ['scorpio'], reply: `Scorpio (${todayStr}): Intensity drives you today. Dig deep into projects, but don’t overthink.` },
+        { keywords: ['sagittarius'], reply: `Sagittarius (${todayStr}): Adventure calls you today. Explore new ideas, but plan wisely.` },
+        { keywords: ['capricorn'], reply: `Capricorn (${todayStr}): Hard work pays off today. Stay disciplined to achieve your goals.` },
+        { keywords: ['aquarius'], reply: `Aquarius (${todayStr}): Creativity flows today. Innovate and share your unique perspective.` },
+        { keywords: ['pisces'], reply: `Pisces (${todayStr}): Intuition guides you today. Trust your instincts in decisions.` },
+        { keywords: ['love', 'relationship', 'marriage'], reply: 'Love is in the stars! Share your zodiac sign for a detailed reading.' },
+        { keywords: ['career', 'job', 'work'], reply: 'The planets can guide your career path. What’s your zodiac sign?' },
+        { keywords: ['health', 'wellness'], reply: 'Health is wealth! Share your zodiac sign for personalized insights.' },
+        { keywords: ['future', 'destiny', 'fate'], reply: 'The stars hold your future. Share your zodiac sign for insights.' },
         { keywords: ['thank', 'thanks'], reply: 'You’re very welcome! Ask another question to dive deeper into the cosmos.' }
       ];
 
@@ -732,6 +944,7 @@
 
       return 'I’m Rashish Ji’s bot assistant. Ask about your horoscope, love, career, or health, and I’ll guide you!';
     }
+    // Function to send a message in the chat 
 
     function sendMessage() {
       const chatInput = document.getElementById('chatInput');
@@ -753,12 +966,14 @@
       chatInput.value = '';
       chatMessages.scrollTop = chatMessages.scrollHeight;
     }
+    // Event listeners for navigation links 
 
     document.querySelectorAll('.nav-links p').forEach(link => {
       link.addEventListener('click', () => {
         const page = link.getAttribute('data-page');
         navigateTo(page);
       });
+      // Handle keyboard navigation for accessibility 
 
       link.addEventListener('keypress', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
@@ -767,6 +982,17 @@
         }
       });
     });
+    // Handle button clicks from the bottom navigation 
+
+    document.querySelectorAll('.bottom-nav button').forEach(button => {
+      button.addEventListener('click', () => {
+        const page = button.getAttribute('data-page');
+        if (page) {
+          navigateTo(page);
+        }
+      });
+    });
+    // Handle chat button click 
 
     const chatButton = document.querySelector('.massages-button');
     chatButton.addEventListener('click', showChat);
@@ -774,14 +1000,14 @@
       e.preventDefault();
       showChat();
     });
-
+    // Handle chat send button
     const sendButton = document.querySelector('.chat-send-button');
     sendButton.addEventListener('click', sendMessage);
     sendButton.addEventListener('touchstart', (e) => {
       e.preventDefault();
       sendMessage();
     });
-
+    // Hangle Enter key for chat input
     document.getElementById('chatInput')?.addEventListener('keypress', (e) => {
       if (e.key === 'Enter') {
         sendMessage();
@@ -793,6 +1019,9 @@
       e.preventDefault();
       toggleMenu();
     });
+
+    // Load Home page by default
+    loadHomePage();
   </script>
 </body>
 
